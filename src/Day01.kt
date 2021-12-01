@@ -1,17 +1,15 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    val stringLines: List<String> = readInput("inputs/Day01_input")
+    var lines: List<Int> = stringLines.map { it.toInt() }
+
+    var prevLine = lines[0] // default is first
+    var totalIncreased = 0
+    for (line in lines.drop(1)) {
+        if (line > prevLine) {
+            totalIncreased++
+        }
+        prevLine = line
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    println("Result = $totalIncreased")
 }
