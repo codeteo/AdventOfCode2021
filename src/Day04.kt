@@ -4,6 +4,12 @@ fun main() {
     part1()
 }
 
+/**
+ * This code is ugly, sequentially, variables are not named properly and its not easy to read.
+ * It's purpose is to solve a problem and nothing else.
+ * 
+ * DO NOT USE IT
+ */
 private fun part1() {
     val input = readInput("inputs/Day04_input")
     val allDrawnNumbers: List<Int> = input.firstOrNull()?.split(",")?.map { it.toIntOrNull() ?: 0 } ?: emptyList()
@@ -32,6 +38,7 @@ private fun part1() {
         boardLines++
     }
 
+    // TODO: 4/12/21 awful 4 level-deep loop
     for (numberDrawn in allDrawnNumbers) {
         for (aMatrix in allMatrixes) {
             for (line in aMatrix) {
@@ -75,13 +82,12 @@ private fun part1() {
         }
     }
 
-    println("THEO")
 }
 
 private fun Array<IntArray>.sumOfUnmarkedNums(): Int {
     println(this)
     var sum = 0
-    for (i in 0 until 5) {
+    for (i in 0 until 5) {      // TODO: 4/12/21 change this part to functional 
         for (j in 0 until 5) {
             if (this[i][j] != 0) {
                 println(this[i][j])
